@@ -31,7 +31,7 @@ make lint
 2. Open another terminal window, run script make_prediction.sh to get home price prediction.
 3. See output_text_files\docker_out.txt for example of output
 ## Run in Kubernetes 
-1. Open terminal window, run script run kubernetes.sh.
+1. Open terminal window, start up minikube and run script run kubernetes.sh.
 
    You may have to run script twice to wait for Kubernetes pod to finish startup and running before setting up service and exposing it with URL and port number you can call.
 
@@ -39,8 +39,11 @@ make lint
 3. Open another terminal window, run script make_prediction.sh to get home price prediction.
 4. To see home price prediction within Kubernetes minikube pod, named *mlmicrokuber-node*, run in terminal:
 ```
-kubectl logs mlmicrokuber-node
+kubectl logs Name_Of_Pod 
 ```
+
+where name of pod is from ```kubectl get pods```
+
 3. See output_text_files\kubernetes_out.txt for example of output
 # Dependencies
 * Python 3.7
