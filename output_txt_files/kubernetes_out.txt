@@ -1,12 +1,43 @@
-172.17.0.1 - - [30/Aug/2019 00:19:18] "GET / HTTP/1.1" 200 -
-172.17.0.1 - - [30/Aug/2019 00:19:18] "GET /favicon.ico HTTP/1.1" 404 -
-[2019-08-30 00:20:58,950] INFO in app: JSON payload: 
+minikube service mlmicrokuber-node
+
+|-----------|-------------------|-----------------------------|
+| NAMESPACE |       NAME        |             URL             |
+|-----------|-------------------|-----------------------------|
+| default   | mlmicrokuber-node | http://192.168.99.103:30499 |
+|-----------|-------------------|-----------------------------|
+🎉  Opening kubernetes service  default/mlmicrokuber-node in default browser...
+
+kubectl get pods
+NAME                                READY   STATUS    RESTARTS   AGE
+mlmicrokuber-node-59d5c557d-5cjld   1/1     Running   0          10m
+
+kubectl logs mlmicrokuber-node-59d5c557d-5cjld
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+/usr/local/lib/python3.7/site-packages/sklearn/base.py:251: UserWarning: Trying to unpickle estimator DecisionTreeRegressor from version 0.20.3 when using version 0.20.2. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+/usr/local/lib/python3.7/site-packages/sklearn/base.py:251: UserWarning: Trying to unpickle estimator GradientBoostingRegressor from version 0.20.3 when using version 0.20.2. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+/usr/local/lib/python3.7/site-packages/sklearn/base.py:251: UserWarning: Trying to unpickle estimator DecisionTreeRegressor from version 0.20.3 when using version 0.20.2. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+/usr/local/lib/python3.7/site-packages/sklearn/base.py:251: UserWarning: Trying to unpickle estimator GradientBoostingRegressor from version 0.20.3 when using version 0.20.2. This might lead to breaking code or invalid results. Use at your own risk.
+  UserWarning)
+ * Debugger is active!
+ * Debugger PIN: 294-655-389
+172.17.0.1 - - [03/Sep/2019 20:49:24] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [03/Sep/2019 20:49:25] "GET /favicon.ico HTTP/1.1" 404 -
+[2019-09-03 20:50:19,940] INFO in app: JSON payload: 
 {'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
-[2019-08-30 00:20:58,963] INFO in app: Inference payload DataFrame: 
+[2019-09-03 20:50:19,953] INFO in app: Inference payload DataFrame: 
    CHAS     RM    TAX  PTRATIO      B  LSTAT
 0     0  6.575  296.0     15.3  396.9   4.98
-[2019-08-30 00:20:58,972] INFO in app: Scaling Payload: 
+[2019-09-03 20:50:19,962] INFO in app: Scaling Payload: 
    CHAS     RM    TAX  PTRATIO      B  LSTAT
 0     0  6.575  296.0     15.3  396.9   4.98
-[2019-08-30 00:20:58,976] INFO in app: output prediction: [20.35373177134412]
-172.17.0.1 - - [30/Aug/2019 00:20:58] "POST /predict HTTP/1.1" 200 -
+[2019-09-03 20:50:19,965] INFO in app: output prediction: [20.35373177134412]
+172.17.0.1 - - [03/Sep/2019 20:50:19] "POST /predict HTTP/1.1" 200 -
